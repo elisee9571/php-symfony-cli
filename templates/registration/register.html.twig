@@ -19,29 +19,27 @@
 							</div>
 							{{ form_start(registrationForm) }}
 							<div class="row">
-								<div class="col-6">
+								<div class="col-sm-6">
 									{{ form_row(registrationForm.firstname) }}
 								</div>
-								<div class="col-6">
+								<div class="col-sm-6">
 									{{ form_row(registrationForm.lastname) }}
 								</div>
 							</div>
 							{{ form_row(registrationForm.email) }}
-							{{ form_row(registrationForm.plainPassword, {
-                                label: 'Password'
-                            }) }}  
 							{{ form_row(registrationForm.address) }}
+							{{ form_row(registrationForm.city) }}
 							<div class="row">
-								<div class="col">
+								<div class="col-sm-6">
 									{{ form_row(registrationForm.zipcode) }}
 								</div>
-								<div class="col">
-									{{ form_row(registrationForm.city) }}
-								</div>
-                                <div class="col">
-        							{{ form_row(registrationForm.country) }}
+								<div class="col-sm-6">
+									{{ form_row(registrationForm.country) }}
 								</div>
 							</div>
+							{{ form_row(registrationForm.plainPassword, {
+                                label: 'Password'
+                            }) }}
 							{{ form_row(registrationForm.agreeTerms) }}
 
 							<button class="btn btn-primary btn-user btn-block" type="submit">
@@ -49,9 +47,6 @@
 							</button>
 							{{ form_end(registrationForm) }}
 							<hr>
-							<div class="text-center">
-								<a class="small" href="forgot-password.html">Forgot Password?</a>
-							</div>
 							<div class="text-center">
 								<a class="small" href="{{ path('app_login') }}">Already have an account? Login!</a>
 							</div>
