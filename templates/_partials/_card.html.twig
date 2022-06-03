@@ -3,6 +3,10 @@
 	<div
 		class="card h-100">
 		<!-- Product image-->
+		{% if product.quantity == 0 %}
+			<div class="badge alert-danger position-absolute" style="top: 0.5rem; right: 0.5rem">Sold</div>
+		{% endif %}
+
 		<img
 		class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..."/>
 		<!-- Product details-->
@@ -12,13 +16,17 @@
 				<!-- Product name-->
 				<h5 class="fw-bolder">{{product.name}}</h5>
 				<!-- Product price-->
-				{{product.price}}
+				{{product.price}}€
 			</div>
 		</div>
 		<!-- Product actions-->
 		<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 			<div class="text-center">
-				<a class="btn btn-outline-dark mt-auto" href="#">View options</a>
+			{% if product.quantity == 0 %}
+				<a class="btn btn-outline-dark mt-auto" href="{{ path('app_product_details', {'slug': product.slug}) }}">View options</a>
+			{% else %}
+				<a class="btn btn-outline-dark mt-auto" href="{{ path('app_product_details', {'slug': product.slug}) }}">Add to cart</a>
+			{% endif %}
 			</div>
 		</div>
 	</div>

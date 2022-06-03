@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/', name: 'app_home_')]
-class HomeController extends AbstractController
+#[Route('/admin/user', name: 'admin_user_')]
+class UserController extends AbstractController
 {
     public function __construct(ProductRepository $productRepository)
     {
@@ -18,10 +18,6 @@ class HomeController extends AbstractController
     #[Route(name: 'index')]
     public function index(): Response
     {
-        $products = $this->productRepository->findAll();
-
-        return $this->render('home/index.html.twig', [
-            "products" => $products,
-        ]);
+        return $this->render('admin/user/index.html.twig');
     }
 }

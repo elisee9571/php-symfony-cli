@@ -14,7 +14,10 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_home') }}">Home</a>
+					<a class="nav-link" href="{{ path('app_home_index') }}">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_product_index') }}">Product</a>
 				</li>
 			</ul>
 
@@ -24,7 +27,6 @@
 					<a href="{{ path('app_register') }}" class="btn btn-secondary">Sign up</a>
 				</div>
 			{% else %}
-
 				<div class="btn-group dropstart">
 					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Profile
@@ -35,10 +37,10 @@
 						</li>
 						<li><hr class="dropdown-divider"></li>
 						<li>
-							<a class="dropdown-item" href="#">Profile</a>
+							<a class="dropdown-item" href="{{ path('app_profile_index') }}">Profile</a>
 						</li>
-            <li>
-							<a class="dropdown-item" href="#">Settings</a>
+						<li>
+							<a class="dropdown-item" href="{{ path('app_profile_orders') }}">Orders</a>
 						</li>
 						<li><hr class="dropdown-divider"></li>
 						<li>
